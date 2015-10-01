@@ -1,0 +1,36 @@
+#userForm{
+	padding: 10px;
+}
+form legend{
+	padding: 10px;
+	margin: 10px;
+}
+#errordiv{
+	padding: 10px;
+	margin-top: 10px;
+	color: red;
+}
+form label{
+	padding: 10px;
+	text-align: left;
+	margin:10px;
+	margin-right: 20px;
+}
+form input{
+	padding:10px;
+	text-align: left;
+	
+}
+#state{
+	margin:10px;
+	padding: 10px;
+}
+form span{
+	margin-left: 5px;
+}
+.errorfeedback{
+	visibility: hidden;
+}
+.errorclass{
+	background-color: #cccccc;
+}
