@@ -13,11 +13,13 @@ $(document).ready(function(){
 	});	
 		var illegalfields=new Array();
 		var errorfields=new Array();
+		var error=new Array();
+		
 		function validateForm(){
-			var error=new Array();
+			
 			var namelegal=/(?:^[A-Z][a-z]+$)/g;
 			var phonelegal=/^[0-9]{4}-[0-9]{7}$/g;
-			var emaillegal=/^[a-z_][a-z0-9]+(?:[-._][a-z0-9]+)*@[a-z]+\.[a-z]+$/;
+			var emaillegal=/^[a-z_][a-z0-9]+(?:[-._][a-z0-9]+)*@[a-z]+(?:[-._][a-z0-9]+)*\.[a-z]+$/;
 			if($('#name').val()==""){
 				errorfields.push('name');
 			}
@@ -64,6 +66,9 @@ $(document).ready(function(){
 			}
 			return error;
 		}
+	
+
+
 	function provideFeedback(incomingerrors){
 		for (var i = 0; i < incomingerrors.length; i++) {
 			if(incomingerrors[i]=="illegalfields"){
@@ -128,10 +133,14 @@ $(document).ready(function(){
 		//}
 		//$("#errordiv").html("errors encountered");
 	}
+	
+
+
 	function removeFeedback(){
 		$('#errordiv').html(""); 
 		illegalfields=[];
 		errorfields=[];
+		error=[];
 		$("input").each(function(){
 			$(this).removeClass("errorclass");
 		});
