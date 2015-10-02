@@ -54,8 +54,14 @@ $(document).ready(function(){
 			//		illegalfields.push('name');
 				//}
 		    //}
-		    error.push("illegalfields");
-			error.push("errorfields");
+		    if(illegalfields!=""){
+		    	error.push("illegalfields");
+				
+			}
+			
+			if(errorfields!=""){
+				error.push("errorfields");
+			}
 			return error;
 		}
 	function provideFeedback(incomingerrors){
