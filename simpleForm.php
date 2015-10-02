@@ -64,7 +64,7 @@
 		<input type="password" name="password1" id="password1"><span class="errorfeedback errorspan" id="password1error">Password Required</span>
 		<br>
 		<label for="password2">Verify Password*:</label>
-		<input type="password" name="password2" id="password2"><span class="errorfeedback errorspan" id="password2error">Password do not match</span>
+		<input type="password" name="password2" id="password2"><span class="errorfeedback errorspan" id="password2error">Password Verification Required</span>
 		<br>
 		<input type="submit" id="submit" name="submit">			
 	</fieldset>
