@@ -29,7 +29,7 @@ form span{
 	margin-left: 5px;
 }
 .errorfeedback{
-	visibility: hidden;
+	color: red;
 }
 .errorclass{
 	background-color: #cccccc;
