@@ -23,16 +23,32 @@ foreach ($input as $value) {
 $required=array("name","email","phone");
 	$_SESSION['error']=array();
 	foreach ($required as $value) {
-	if (!isset($_SESSION['input'][$value]) || $_SESSION['input'][$value]=="") {
-	$_SESSION['error'][$value."Err"]=$value." is required";
-}
+		if (!isset($_SESSION['input'][$value]) || $_SESSION['input'][$value]=="") {
+			$_SESSION['error'][$value."Err"]=$value." is required";
+		}
+		else {
+			if (($value=='name') && (!preg_match('/(?:^[A-Z][a-z]+$)/', $_SESSION['input'][$value]))){
+				$_SESSION['error'][$value."Err"]=$value." is invalid.";
+			}
+			if (($value=='phone') && (!preg_match('/^[0-9]{4}-[0-9]{7}$/', $_SESSION['input'][$value]))){
+				$_SESSION['error'][$value."Err"]=$value." is not valid";
+			}
+			if (($value=="email") && (!preg_match('/^[a-z_][a-z0-9]+(?:[-._][a-z0-9]+)*@[a-z]+(?:[-._][a-z0-9]+)*\.[a-z]+$/', $_SESSION['input'][$value]))){
+				$_SESSION['error'][$value."Err"]=$value." is invalid";
+			}
+		}
+	}
 if ($_SESSION['input']['password1']=="") {
 	$_SESSION['error']['password1Err']="Password is required";
 }
 if ($_SESSION['input']['password2']=="") {
 	$_SESSION['error']['password2Err']="Password verification is required";
 }
+if ($_SESSION['input']['password2']!=$_SESSION['input']['password1']) {
+	$_SESSION['error']['password2Err']="Password do not match";
 }
+
+
 if(isset($_SESSION['error']) && count($_SESSION['error'])>0){
 die(header("Location: simpleForm.php"));
 }
