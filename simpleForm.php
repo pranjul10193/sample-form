@@ -39,8 +39,8 @@
 		<label for="name">
 			Enter Name*:
 		</label>
-		<input type="text" name="name" id="name" value="<?php print(@$_SESSION['input']['name']); ?>">
-		<span class="errorfeedback errorspan" id="nameerror">
+		<input type="text" name="name" id="name" value="<?php print(@$_SESSION['input']['name']);unset($_SESSION['input']['name']);?>">
+		<span class="errorspan" id="nameerror">
 			<?php print(@$_SESSION['error']['nameErr']); unset($_SESSION['error']['nameErr']);?>
 		</span>
 		<br>
@@ -65,17 +65,18 @@
 		<input type="text" id="zip" name="zip">
 		<br>
 		<label for="email">Enter E-mail*:</label>
-		<input type="text" id="email" name="email" value="<?php print(@$_SESSION['input']['email']); ?>">
-		<span class="errorfeedback errorspan" id="emailerror">
+		<input type="text" id="email" name="email" value="<?php print(@$_SESSION['input']['email']);unset($_SESSION['input']['email']); ?>">
+		<span class="errorspan" id="emailerror">
 			<?php print(@$_SESSION['error']['emailErr']);
-					//unset($_SESSION['error']['emailErr']);
+			 unset($_SESSION['error']['emailErr']);
 			 ?>	
 		</span>
 		<br>
 		<label for="phone">Enter Phone-No*:</label>
-		<input type="text" id="phone" name="phone" value="<?php print(@$_SESSION['input']['phone']); ?>">
-		<span class="errorfeedback errorspan" id="phoneerror">
+		<input type="text" id="phone" name="phone" value="<?php print(@$_SESSION['input']['phone']); unset($_SESSION['input']['phone']);?>">
+		<span class="errorspan" id="phoneerror">
 			<?php print(@$_SESSION['error']['phoneErr']); 
+			unset($_SESSION['error']['phoneErr']);
 			?>
 		</span>
 		<br>
@@ -84,21 +85,25 @@
 				<label class="radio-button" for="work">Work</label>
 			<input class="radioButton" type="radio" name="home" id="home" value="home">
 				<label class="radioButton" for="home">Home</label>
-				<span class="errorfeedback errorspan" id="phonetypeerror">
-					<?php print(@$_SESSION['error']['phonetypeErr']);?>
+				<span class="errorspan" id="phonetypeerror">
+					<?php print(@$_SESSION['error']['phonetypeErr']);
+					unset($_SESSION['error']['phonetypeErr']);
+					?>
 				</span>
 		<br>
 		<label for="password1">Password*:</label>
 		<input type="password" name="password1" id="password1">
-		<span class="errorfeedback errorspan" id="password1error">
+		<span class="errorspan" id="password1error">
 			<?php print(@$_SESSION['error']['password1Err']);
+					unset($_SESSION['error']['password1Err']);
 			 ?>
 		</span>
 		<br>
 		<label for="password2">Verify Password*:</label>
 		<input type="password" name="password2" id="password2">
-		<span class="errorfeedback errorspan" id="password2error">
+		<span class="errorspan" id="password2error">
 			<?php print(@$_SESSION['error']['password2Err']); 
+					unset($_SESSION['error']['password2Err']);
 			?>
 		</span>
 		<br>

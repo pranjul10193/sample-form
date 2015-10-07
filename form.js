@@ -19,7 +19,7 @@ $(document).ready(function(){
 			
 			var namelegal=/(?:^[A-Z][a-z]+$)/g;
 			var phonelegal=/^[0-9]{4}-[0-9]{7}$/g;
-			var emaillegal=/^[a-z_][a-z0-9]+(?:[-._][a-z0-9]+)*@[a-z]+(?:[-._][a-z0-9]+)*\.[a-z]+$/;
+			var emaillegal=/^[a-z_][a-z0-9]+(?:[-._][a-z0-9]+)*@[a-z]+(?:[-._][a-z0-9]+)*\.[a-z]+$/g;
 			if($('#name').val()==""){
 				errorfields.push('name');
 			}
@@ -68,7 +68,6 @@ $(document).ready(function(){
 		}
 	
 
-
 	function provideFeedback(incomingerrors){
 		for (var i = 0; i < incomingerrors.length; i++) {
 			if(incomingerrors[i]=="illegalfields"){
@@ -76,24 +75,24 @@ $(document).ready(function(){
 					if(illegalfields[j]=="name"){
 						$("#name").addClass('errorclass');
 						$("#nameerror").html("Not a Valid Name.Please enter in correct Name Format");
-						$("#nameerror").removeClass("errorfeedback");
+						$("#nameerror").css("visibility","visible");
 					}
 					if(illegalfields[j]=="phone"){
 						$("#phone").addClass('errorclass');
 						$("#phoneerror").html("Not a Valid Phone Number.Please enter in correct Format");
-						$("#phoneerror").removeClass("errorfeedback");
+						$("#phoneerror").css("visibility","visible");
 	
 					}
 					if(illegalfields[j]=="email"){
 						$("#email").addClass('errorclass');
 						$("#emailerror").html("Not a Valid Email.Please enter correct email");
-						$("#emailerror").removeClass("errorfeedback");
+						$("#emailerror").css("visibility","visible");
 
 					}
 					if(illegalfields[j]=="password2"){
 						$("#password2").addClass('errorclass');
 						$("#password2error").html("Passwords do not match");
-						$("#password2error").removeClass("errorfeedback");
+						$("#password2error").css("visibility","visible");
 					}
 				}
 			}
@@ -102,26 +101,27 @@ $(document).ready(function(){
 					if(errorfields[j]=="name"){
 						$("#name").addClass('errorclass');
 						$("#nameerror").html("Name is required");
-						$("#nameerror").removeClass("errorfeedback");
+						$("#nameerror").css("visibility","visible");
 					}
 					if (errorfields[j]=="phone") {
 						$("#phone").addClass('errorclass');
 						$("#phoneerror").html("Phone Number is required");
-				        $("#phoneerror").removeClass("errorfeedback");
+				        $("#phoneerror").css("visibility","visible");
 					}
 					if (errorfields[j]=="email") {
 						$("#email").addClass('errorclass');
 						$("#emailerror").html("Email is required");
-				        $("#emailerror").removeClass("errorfeedback");
+				        $("#emailerror").css("visibility","visible");
 					}
 					if (errorfields[j]=="password1") {
 						$("#password1").addClass('errorclass');
-				        $("#password1error").removeClass("errorfeedback");
+						$("#password1error").html("Password is required");
+				        $("#password1error").css("visibility","visible");
 					}
 					if (errorfields[j]=="password2") {
 						$("#password2").addClass('errorclass');
 						$("#password2error").html("Password verification is required");
-				        $("#password2error").removeClass("errorfeedback");
+				        $("#password2error").css("visibility","visible");
 					}
 				}
 			}
@@ -145,7 +145,7 @@ $(document).ready(function(){
 			$(this).removeClass("errorclass");
 		});
 		$(".errorspan").each(function(){
-			$(this).addClass("errorfeedback");
+			$(this).css("visibility","hidden");
 	});
    }
 });
