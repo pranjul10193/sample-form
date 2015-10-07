@@ -3,8 +3,9 @@ if (!isset($_POST['submit']) && $_SERVER['REQUEST_METHOD']=="POST")
 {
 die(header("Location: simpleForm.php"));
 }
-session_start();
 
+session_start();
+$_SESSION['script']="<!--<script type='text/javascript' src='form.js'></script>-->";
 $_SESSION['formAttempt']=true;
 if (isset($_SESSION['error'])){
 	unset($_SESSION['error']);

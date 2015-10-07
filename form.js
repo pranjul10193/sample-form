@@ -23,9 +23,9 @@ $(document).ready(function(){
 			if($('#name').val()==""){
 				errorfields.push('name');
 			}
-			if ($('#email').val()=="") {
-				errorfields.push('email');
-			}
+			//if ($('#email').val()=="") {
+			//	errorfields.push('email');
+			//}
 			if ($('#password1').val()=="") {
 				errorfields.push('password1');
 			}
@@ -44,10 +44,10 @@ $(document).ready(function(){
 			if(!phone_ok){
 				illegalfields.push('phone');
 			}
-			var email_ok=emaillegal.exec($('#email').val());
-			if(!email_ok){
-				illegalfields.push('email');
-			}
+			//var email_ok=emaillegal.exec($('#email').val());
+			//if(!email_ok){
+				//illegalfields.push('email');
+			//}
 			if($('#password2').val()!=$('#password1').val()){
 				illegalfields.push('password2');
 			}
